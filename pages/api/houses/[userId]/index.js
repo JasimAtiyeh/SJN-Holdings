@@ -3,7 +3,7 @@ import { mongoClient } from "../../../../services/api-services";
 
 // GET /houses
 // Index for getting all houses
-// todo: Would be better to have userId stored in state and only present that users houses
+// todo: Get userId from state and pass in with request
 export default async function handler(req, res) {
   const db = process.env.DB;
   const client = mongoClient();

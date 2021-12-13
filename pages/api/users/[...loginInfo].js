@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       });
 
       if (user) {
-        // User needs to be added to state??
+        // todo User needs to be added to state??
         res.status(200).json({ id: user._id, username: user.username });
         break;
       } else {
