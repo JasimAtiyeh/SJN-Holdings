@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 
-export default function Login(props) {
+export default function LoginPage(props) {
   const [userNotFound, setUserNotFound] = useState();
   const router = useRouter();
 
@@ -13,12 +13,9 @@ export default function Login(props) {
 
     fetch(`/api/users/login/${username}/${password}`).then((response) => {
       if (response.ok) {
-        response
-          .json()
-          .then((responseBody) =>
-            localStorage.setItem("userId", responseBody.id)
-          );
-        router.replace("/");
+        response.json().then((responseBody) => {
+          router.replace("/" + responseBody.id);
+        });
       } else {
         setUserNotFound(<p>User not found</p>);
       }
